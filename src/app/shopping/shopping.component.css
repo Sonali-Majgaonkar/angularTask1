@@ -1,0 +1,17 @@
+/* .qty button{
+    margin: 10px;;
+} */
+.product-input{
+    width:40px;
+    border: 2px solid black;
+    margin:0 10px 10px;
+    padding: 0 12px;
+}
+img{
+    height: 150px;
+    object-fit: cover;
+}
+h1{
+    font-family: 'Ysabeau SC', sans-serif;
+    font-weight: 400;
+}

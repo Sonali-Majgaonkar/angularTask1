@@ -1,0 +1,56 @@
+<!-- <p>shopping works!</p> -->
+<header>
+  <nav class="navbar navbar-expand-lg navbar-secondary bg-secondary p-3">
+    <button class="btn btn-danger ml-auto px-4" type="submit"><i class="fa fa-cart-plus pr-3"></i> Buy Now</button>
+  </nav>
+</header>
+<div class="container mt-3">
+  <div class="row">
+    <div class="col-6">
+        <div class="row">
+            <div class="col-4 text-center" *ngFor="let item of productItem; let i=index">
+                <div class="card my-3">
+                    <img [src]="item.pImgPath" class="card-img-top" alt="product">
+                    <div class="card-body">
+                      <h5 class="product-title">{{item.pName}}</h5>
+                      <h6>{{item.pPrice | currency:'INR' }}</h6>
+                      <hr>
+                      <div class="qty">
+                        <button type="button" (click)="decreseNum($event)"><i class="fa fa-minus"></i></button>
+                        <input type="text" value="1" class="product-input">
+                        <button type="button" (click)="incrementNum($event)"><i class="fa fa-plus"></i></button>
+                      </div>
+                      <div class="div">
+                        <button class="btn btn-success px-3" (click)="addItemToBuy(i,$event)">Add To bag</button>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-6">
+        <h1>My Shopping Bag</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Quantity</th>
+                    <th>Price Details</th>
+                    <th>Order Total</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of addItem; let i = index">
+                  <td>{{data.pName}}</td>
+                  <td>{{data.qty}}</td>
+                  <td>{{data.pPrice}}</td>
+                  <td>{{data.orderTotal}}</td>
+                  <td><button class="btn-danger" (click)="deleteItem($event, i)">x</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
